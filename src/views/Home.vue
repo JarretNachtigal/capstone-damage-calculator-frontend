@@ -1,12 +1,19 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <h1>{{ message }}</h1>
+  </div>
 </template>
 
 <script>
-// @ is an alias to /src
-
+// import axios from "axios";
 export default {
-  name: "Home",
-  components: {},
+  data: function () {
+    return {
+      message: "Home",
+    };
+  },
+  created: function () {},
+  methods: {},
+  setup() {},
 };
 </script>
