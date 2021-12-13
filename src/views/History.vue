@@ -10,6 +10,8 @@
       <p>Ability: {{ getAbilityName(calc.ability_id) }}</p>
       <p>Ability Level: {{ calc.ability_level }}</p>
       <p>Result: {{ calc.output }}</p>
+      <button>this will eventually route to new calc with this as a starting point</button>
+      <button>this will eventually delete the calc</button>
     </div>
   </div>
 </template>
@@ -55,6 +57,5 @@ export default {
       return abilityName;
     },
   },
-  setup() {},
 };
 </script>
