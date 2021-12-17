@@ -138,9 +138,7 @@ export default {
         champ_two_level: null,
         ability_level: null,
         defending_champion_current_hp: null,
-      }, // this is the bug you shithead
-      championNames: [],
-      // used to hold info before translating names into ids and requesting new calculation from backend
+      },
       championOneName: "",
       championTwoName: "",
       abilityName: "",
