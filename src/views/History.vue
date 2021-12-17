@@ -12,6 +12,16 @@
         </p>
         <p>Ability: {{ getAbilityName(calc.ability_id) }}</p>
         <p>Ability Level: {{ calc.ability_level }}</p>
+        <p>{{ getChampName(calc.champion_id_one) }}'s items:</p>
+        <!-- loop -->
+        <div>
+          <p>{{ calc.attacking_item_id_one }}</p>
+        </div>
+        <p>{{ getChampName(calc.champion_id_two) }}'s items:</p>
+        <!-- loop -->
+        <div>
+          <p>{{ calc.defending_item_id_one }}</p>
+        </div>
         <p>Result: {{ calc.output }}</p>
         <button>this will eventually route to new calc with this as a starting point</button>
         <button>this will eventually delete the calc</button>
