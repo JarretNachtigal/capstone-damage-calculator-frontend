@@ -2,6 +2,7 @@
   <div class="home">
     <body>
       <h1>{{ message }}</h1>
+      <!-- <p>{{ champions }}</p> -->
       <!-- <h1>{{ abilities }}</h1> -->
       <!-- champions dropdown-->
       <div>
@@ -125,7 +126,16 @@ export default {
       message: "New Calculation",
       champions: [],
       abilities: [],
-      currentCalculation: {},
+      currentCalculation: {
+        champion_id_one: null,
+        champion_id_two: null,
+        ability_id: null,
+        output: null,
+        champ_one_level: null,
+        champ_two_level: null,
+        ability_level: null,
+        defending_champion_current_hp: null,
+      }, // this is the bug you shithead
       championNames: [],
       // used to hold info before translating names into ids and requesting new calculation from backend
       championOneName: "",
@@ -148,24 +158,9 @@ export default {
   methods: {
     // fields of currentCalculation need to be translated from newThing to id first
     createCalculation(currentCalculation, championOneName, championTwoName, abilityName) {
-      currentCalculation.champion_id_one = this.champions.findIndex(function (champ) {
-        if (champ.name === championOneName) {
-          return champ.id;
-        }
-      });
-      // this.currentCalculation.champion_id_one++;
-      currentCalculation.champion_id_two = this.champions.findIndex(function (champ) {
-        if (champ.name === championTwoName) {
-          return champ.id;
-        }
-      });
-      // this.currentCalculation.champion_id_two++;
-      currentCalculation.ability_id = this.abilities.findIndex(function (ability) {
-        if (ability.name === abilityName) {
-          return ability.id;
-        }
-      });
-      // this.currentCalculation.ability_id++;
+      currentCalculation.champion_id_one = this.champions.find((champ) => champ.name === championOneName).id;
+      currentCalculation.champion_id_two = this.champions.find((champ) => champ.name === championTwoName).id;
+      currentCalculation.ability_id = this.abilities.find((ability) => ability.name === abilityName).id;
       console.log("this is the thing", this.currentCalculation);
       axios.post("http://localhost:3000/calculations", currentCalculation).then((response) => {
         console.log(response.data);
