@@ -85,7 +85,7 @@
               <input type="text" v-model="currentCalculation.ability_level" list="ability levels" />
             </div>
             <!-- <div class="col-md-3">
-              <label for="item2">Choose an item:</label>
+              <label for="item1">Choose an item:</label>
             </div>
             <div class="col-md-3">
               <input type="text" v-model="defendingItemOne" list="items" />
@@ -101,6 +101,9 @@
                 submit
               </button>
             </div>
+          </div>
+          <div class="row" v-if="output">
+            <div class="col-md-6 .offset-3">Calculation details: {{ output }}</div>
           </div>
         </form>
       </div>
@@ -143,6 +146,7 @@ export default {
       abilityName: "",
       attackingItemOne: "",
       defendingItemOne: "",
+      output: null,
     };
   },
   created: function () {
@@ -164,6 +168,7 @@ export default {
       console.log("this is the thing", this.currentCalculation);
       axios.post("http://localhost:3000/calculations", currentCalculation).then((response) => {
         console.log(response.data);
+        this.output = response.data.output;
       });
     },
     getChampName: function (calc_id) {
