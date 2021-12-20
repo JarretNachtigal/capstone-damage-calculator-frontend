@@ -229,6 +229,18 @@ export default {
         champ_two_level: null,
         ability_level: null,
         defending_champion_current_hp: null,
+        attacking_item_id_one: null,
+        attacking_item_id_two: null,
+        attacking_item_id_three: null,
+        attacking_item_id_four: null,
+        attacking_item_id_five: null,
+        attacking_item_id_six: null,
+        defending_item_id_one: null,
+        defending_item_id_two: null,
+        defending_item_id_three: null,
+        defending_item_id_four: null,
+        defending_item_id_five: null,
+        defending_item_id_six: null,
       },
       championOneName: "",
       championTwoName: "",
@@ -268,18 +280,46 @@ export default {
       currentCalculation.champion_id_one = this.champions.find((champ) => champ.name === championOneName).id;
       currentCalculation.champion_id_two = this.champions.find((champ) => champ.name === championTwoName).id;
       currentCalculation.ability_id = this.abilities.find((ability) => ability.name === abilityName).id;
-      currentCalculation.attacking_item_id_one = this.items.find((item) => item.name === this.attackingItemOne).id;
-      currentCalculation.attacking_item_id_two = this.items.find((item) => item.name === this.attackingItemTwo).id;
-      currentCalculation.attacking_item_id_three = this.items.find((item) => item.name === this.attackingItemThree).id;
-      currentCalculation.attacking_item_id_four = this.items.find((item) => item.name === this.attackingItemFour).id;
-      currentCalculation.attacking_item_id_five = this.items.find((item) => item.name === this.attackingItemFive).id;
-      currentCalculation.attacking_item_id_six = this.items.find((item) => item.name === this.attackingItemSix).id;
-      currentCalculation.defending_item_id_one = this.items.find((item) => item.name === this.defendingItemOne).id;
-      currentCalculation.defending_item_id_two = this.items.find((item) => item.name === this.defendingItemTwo).id;
-      currentCalculation.defending_item_id_three = this.items.find((item) => item.name === this.defendingItemThree).id;
-      currentCalculation.defending_item_id_four = this.items.find((item) => item.name === this.defendingItemFour).id;
-      currentCalculation.defending_item_id_five = this.items.find((item) => item.name === this.defendingItemFive).id;
-      currentCalculation.defending_item_id_six = this.items.find((item) => item.name === this.defendingItemSix).id;
+      if (this.attackingItemOne != "") {
+        currentCalculation.attacking_item_id_one = this.items.find((item) => item.name === this.attackingItemOne).id;
+      }
+      if (this.attackingItemTwo != "") {
+        currentCalculation.attacking_item_id_two = this.items.find((item) => item.name === this.attackingItemTwo).id;
+      }
+      if (this.attackingItemThree != "") {
+        currentCalculation.attacking_item_id_three = this.items.find(
+          (item) => item.name === this.attackingItemThree
+        ).id;
+      }
+      if (this.attackingItemFour != "") {
+        currentCalculation.attacking_item_id_four = this.items.find((item) => item.name === this.attackingItemFour).id;
+      }
+      if (this.attackingItemFive != "") {
+        currentCalculation.attacking_item_id_five = this.items.find((item) => item.name === this.attackingItemFive).id;
+      }
+      if (this.attackingItemSix != "") {
+        currentCalculation.attacking_item_id_six = this.items.find((item) => item.name === this.attackingItemSix).id;
+      }
+      if (this.defendingItemOne != "") {
+        currentCalculation.defending_item_id_one = this.items.find((item) => item.name === this.defendingItemOne).id;
+      }
+      if (this.defendingItemTwo != "") {
+        currentCalculation.defending_item_id_two = this.items.find((item) => item.name === this.defendingItemTwo).id;
+      }
+      if (this.defendingItemThree != "") {
+        currentCalculation.defending_item_id_three = this.items.find(
+          (item) => item.name === this.defendingItemThree
+        ).id;
+      }
+      if (this.defendingItemFour != "") {
+        currentCalculation.defending_item_id_four = this.items.find((item) => item.name === this.defendingItemFour).id;
+      }
+      if (this.defendingItemFive != "") {
+        currentCalculation.defending_item_id_five = this.items.find((item) => item.name === this.defendingItemFive).id;
+      }
+      if (this.defendingItemSix != "") {
+        currentCalculation.defending_item_id_six = this.items.find((item) => item.name === this.defendingItemSix).id;
+      }
       console.log("this is the thing", this.currentCalculation);
       axios.post("http://localhost:3000/calculations", currentCalculation).then((response) => {
         console.log(response.data);
