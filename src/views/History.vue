@@ -92,6 +92,7 @@ export default {
   created: function () {
     axios.get("http://localhost:3000/calculations").then((response) => {
       this.calculations = response.data;
+      this.calculations = this.calculations.reverse();
       console.log(response);
     });
     axios.get("http://localhost:3000/champions").then((response) => {
