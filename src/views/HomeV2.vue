@@ -44,13 +44,13 @@
               <label for="champions">Choose an attacking champion:</label>
             </div>
             <div class="col-md-3">
-              <input type="text" v-model="championOneName" list="champions" />
+              <input type="text" v-model="championsV2[0].name" list="champions" />
             </div>
             <div class="col-md-3">
               <label for="champions">Choose a defending champion:</label>
             </div>
             <div class="col-md-3">
-              <input type="text" v-model="championTwoName" list="champions" />
+              <input type="text" v-model="championsV2[1].name" list="champions" />
             </div>
           </div>
           <!-- row 2 -->
@@ -74,7 +74,7 @@
               <label for="abilities">Choose an ability:</label>
             </div>
             <div class="col-md-3">
-              <input type="text" v-model="abilityName" list="abilities" />
+              <input type="text" v-model="abilitiesV2.name" list="abilities" />
             </div>
             <div class="col-md-3">
               <label for="defendinghp">Defending champion hp: (default full)</label>
@@ -98,99 +98,94 @@
               <label for="item1">Choose an item:</label>
             </div>
             <div class="col-md-3">
-              <input type="text" v-model="attackingItemOne" list="items" />
+              <input type="text" v-model="attackingItemsV2[0].name" list="items" />
             </div>
             <div class="col-md-3">
-              <label for="item1">Choose an item:</label>
+              <label for="item2">Choose an item:</label>
             </div>
             <div class="col-md-3">
-              <input type="text" v-model="defendingItemOne" list="items" />
+              <input type="text" v-model="defendingItemsV2[0].name" list="items" />
             </div>
           </div>
           <!-- row 6 -->
           <div class="row">
-            <div class="col-md-3" v-if="attackingItemOne">
-              <label for="item1">Choose another item:</label>
+            <div class="col-md-3" v-if="attackingItemsV2[0].name">
+              <label for="item3">Choose another item:</label>
             </div>
-            <div class="col-md-3" v-if="attackingItemOne">
-              <input type="text" v-model="attackingItemTwo" list="items" />
+            <div class="col-md-3" v-if="attackingItemsV2[0].name">
+              <input type="text" v-model="attackingItemsV2[1].name" list="items" />
             </div>
-            <div class="col-md-3" v-if="defendingItemOne">
-              <label for="item1">Choose another item:</label>
+            <div class="col-md-3" v-if="defendingItemsV2[0].name">
+              <label for="item4">Choose another item:</label>
             </div>
-            <div class="col-md-3" v-if="defendingItemOne">
-              <input type="text" v-model="defendingItemTwo" list="items" />
+            <div class="col-md-3" v-if="defendingItemsV2[0].name">
+              <input type="text" v-model="defendingItemsV2[1].name" list="items" />
             </div>
           </div>
           <!-- row 7 -->
           <div class="row">
-            <div class="col-md-3" v-if="attackingItemTwo">
-              <label for="item1">Choose another item:</label>
+            <div class="col-md-3" v-if="attackingItemsV2[1].name">
+              <label for="item5">Choose another item:</label>
             </div>
-            <div class="col-md-3" v-if="attackingItemTwo">
-              <input type="text" v-model="attackingItemThree" list="items" />
+            <div class="col-md-3" v-if="attackingItemsV2[1].name">
+              <input type="text" v-model="attackingItemsV2[2].name" list="items" />
             </div>
-            <div class="col-md-3" v-if="defendingItemTwo">
-              <label for="item1">Choose another item:</label>
+            <div class="col-md-3" v-if="defendingItemsV2[1].name">
+              <label for="item6">Choose another item:</label>
             </div>
-            <div class="col-md-3" v-if="defendingItemTwo">
-              <input type="text" v-model="defendingItemThree" list="items" />
+            <div class="col-md-3" v-if="defendingItemsV2[1].name">
+              <input type="text" v-model="defendingItemsV2[2].name" list="items" />
             </div>
           </div>
           <!-- row 8 -->
           <div class="row">
-            <div class="col-md-3" v-if="attackingItemThree">
-              <label for="item1">Choose another item:</label>
+            <div class="col-md-3" v-if="attackingItemsV2[2].name">
+              <label for="item7">Choose another item:</label>
             </div>
-            <div class="col-md-3" v-if="attackingItemThree">
-              <input type="text" v-model="attackingItemFour" list="items" />
+            <div class="col-md-3" v-if="attackingItemsV2[2].name">
+              <input type="text" v-model="attackingItemsV2[3].name" list="items" />
             </div>
-            <div class="col-md-3" v-if="defendingItemThree">
-              <label for="item1">Choose another item:</label>
+            <div class="col-md-3" v-if="defendingItemsV2[2].name">
+              <label for="item8">Choose another item:</label>
             </div>
-            <div class="col-md-3" v-if="defendingItemThree">
-              <input type="text" v-model="defendingItemFour" list="items" />
+            <div class="col-md-3" v-if="defendingItemsV2[2].name">
+              <input type="text" v-model="defendingItemsV2[3].name" list="items" />
             </div>
           </div>
           <!-- row 9 -->
           <div class="row">
-            <div class="col-md-3" v-if="attackingItemFour">
-              <label for="item1">Choose another item:</label>
+            <div class="col-md-3" v-if="attackingItemsV2[3].name">
+              <label for="item9">Choose another item:</label>
             </div>
-            <div class="col-md-3" v-if="attackingItemFour">
-              <input type="text" v-model="attackingItemFive" list="items" />
+            <div class="col-md-3" v-if="attackingItemsV2[3].name">
+              <input type="text" v-model="attackingItemsV2[4].name" list="items" />
             </div>
-            <div class="col-md-3" v-if="defendingItemFour">
-              <label for="item1">Choose another item:</label>
+            <div class="col-md-3" v-if="defendingItemsV2[3].name">
+              <label for="item10">Choose another item:</label>
             </div>
-            <div class="col-md-3" v-if="defendingItemFour">
-              <input type="text" v-model="defendingItemFive" list="items" />
+            <div class="col-md-3" v-if="defendingItemsV2[3].name">
+              <input type="text" v-model="defendingItemsV2[4].name" list="items" />
             </div>
           </div>
           <!-- row 10 -->
           <div class="row">
-            <div class="col-md-3" v-if="attackingItemFive">
-              <label for="item1">Choose another item:</label>
+            <div class="col-md-3" v-if="attackingItemsV2[4].name">
+              <label for="item11">Choose another item:</label>
             </div>
-            <div class="col-md-3" v-if="attackingItemFive">
-              <input type="text" v-model="attackingItemSix" list="items" />
+            <div class="col-md-3" v-if="attackingItemsV2[4].name">
+              <input type="text" v-model="attackingItemsV2[5].name" list="items" />
             </div>
-            <div class="col-md-3" v-if="defendingItemFive">
-              <label for="item1">Choose another item:</label>
+            <div class="col-md-3" v-if="defendingItemsV2[4].name">
+              <label for="item12">Choose another item:</label>
             </div>
-            <div class="col-md-3" v-if="defendingItemFive">
-              <input type="text" v-model="defendingItemSix" list="items" />
+            <div class="col-md-3" v-if="defendingItemsV2[4].name">
+              <input type="text" v-model="defendingItemsV2[5].name" list="items" />
             </div>
           </div>
           <!-- submit button row -->
           <div class="row">
             <div class="col-sm-6">
-              <button
-                type="button"
-                v-on:click="createCalculation(currentCalculation, championOneName, championTwoName, abilityName)"
-              >
-                submit
-              </button>
+              <button type="button" v-on:click="createCalculation()">submit</button>
             </div>
           </div>
           <div class="row" v-if="output">
@@ -252,7 +247,7 @@ export default {
         { name: null, id: null },
       ],
       // abilities array, will hold abilities of current selected attacking champion
-      abilitiesV2: [],
+      abilitiesV2: [{ name: null, id: null }], // eventually hold more than one and do multiple calcs
       // attacking items array, holds up to six selected items
       attackingItemsV2: [
         { name: null, id: null },
@@ -271,22 +266,6 @@ export default {
         { name: null, id: null },
         { name: null, id: null },
       ],
-      // old
-      championOneName: "",
-      championTwoName: "",
-      abilityName: "",
-      attackingItemOne: "",
-      defendingItemOne: "",
-      attackingItemTwo: "",
-      defendingItemTwo: "",
-      attackingItemThree: "",
-      defendingItemThree: "",
-      attackingItemFour: "",
-      defendingItemFour: "",
-      attackingItemFive: "",
-      defendingItemFive: "",
-      attackingItemSix: "",
-      defendingItemSix: "",
       output: null,
     };
   },
@@ -308,79 +287,67 @@ export default {
     });
   },
   methods: {
+    // FINISH THESE ----A-A--A-A-A--A-A--A--A-A-A-A---A-A-A-A-A-A-A-A-A-A-A-AAA-A-A-A-A
+    setItemIds() {
+      console.log("inside setItemIds");
+      this.attackingItemsV2.map((item) => (item.id = this.items.find((i) => (item.name = i.name))));
+      this.defendingItemsV2.map((item) => (item.id = this.items.find((i) => (item.name = i.name))));
+    },
+    setChampionIds() {
+      console.log("inside setChampionIds");
+      this.attackingItemsV2.map((item) => (item.id = this.items.find((i) => (item.name = i.name))));
+      this.defendingItemsV2.map((item) => (item.id = this.items.find((i) => (item.name = i.name))));
+    },
+    setAbilityIds() {
+      console.log("inside setAbilityIds");
+      this.attackingItemsV2.map((item) => (item.id = this.items.find((i) => (item.name = i.name))));
+      this.defendingItemsV2.map((item) => (item.id = this.items.find((i) => (item.name = i.name))));
+    },
     // fields of currentCalculation need to be translated from newThing to id first
-    createCalculation(currentCalculation, championOneName, championTwoName, abilityName) {
+    createCalculation() {
+      // set ids from names
+      this.setChampionIds();
+      this.setAbilityIds();
+      this.setItemIds();
       // reset defendingChampionCurrentHp if it is empty
       if (this.defending_champion_current_hp === "") {
         this.defending_champion_current_hp = null;
       }
       // get champion id's from champion names
-      currentCalculation.champion_id_one = this.champions.find((champ) => champ.name === championOneName).id;
-      currentCalculation.champion_id_two = this.champions.find((champ) => champ.name === championTwoName).id;
+      this.currentCalculation.champion_id_one = this.champions.find(
+        (champ) => champ.name === this.championsV2[0].name
+      ).id;
+      this.currentCalculation.champion_id_two = this.champions.find(
+        (champ) => champ.name === this.championsV2[1].name
+      ).id;
       // get ability id's from ability names
-      currentCalculation.ability_id = this.abilities.find((ability) => ability.name === abilityName).id;
-      // replace these ifs with maps through V2 arrays !!!!!!!!!!!!!!!!!!!!!!!
-      if (this.attackingItemOne != "") {
-        currentCalculation.attacking_item_id_one = this.items.find((item) => item.name === this.attackingItemOne).id;
-      }
-      if (this.attackingItemTwo != "") {
-        currentCalculation.attacking_item_id_two = this.items.find((item) => item.name === this.attackingItemTwo).id;
-      }
-      if (this.attackingItemThree != "") {
-        currentCalculation.attacking_item_id_three = this.items.find(
-          (item) => item.name === this.attackingItemThree
-        ).id;
-      }
-      if (this.attackingItemFour != "") {
-        currentCalculation.attacking_item_id_four = this.items.find((item) => item.name === this.attackingItemFour).id;
-      }
-      if (this.attackingItemFive != "") {
-        currentCalculation.attacking_item_id_five = this.items.find((item) => item.name === this.attackingItemFive).id;
-      }
-      if (this.attackingItemSix != "") {
-        currentCalculation.attacking_item_id_six = this.items.find((item) => item.name === this.attackingItemSix).id;
-      }
-      if (this.defendingItemOne != "") {
-        currentCalculation.defending_item_id_one = this.items.find((item) => item.name === this.defendingItemOne).id;
-      }
-      if (this.defendingItemTwo != "") {
-        currentCalculation.defending_item_id_two = this.items.find((item) => item.name === this.defendingItemTwo).id;
-      }
-      if (this.defendingItemThree != "") {
-        currentCalculation.defending_item_id_three = this.items.find(
-          (item) => item.name === this.defendingItemThree
-        ).id;
-      }
-      if (this.defendingItemFour != "") {
-        currentCalculation.defending_item_id_four = this.items.find((item) => item.name === this.defendingItemFour).id;
-      }
-      if (this.defendingItemFive != "") {
-        currentCalculation.defending_item_id_five = this.items.find((item) => item.name === this.defendingItemFive).id;
-      }
-      if (this.defendingItemSix != "") {
-        currentCalculation.defending_item_id_six = this.items.find((item) => item.name === this.defendingItemSix).id;
-      }
+      this.currentCalculation.ability_id = this.abilities.find(
+        (ability) => ability.name === this.abilitiesV2[0].name
+      ).id;
+
+      console.log("right before item ids");
+      //items array into currentCalculation object
+      this.currentCalculation.attacking_item_id_one = this.attackingItemsV2[0].id;
+      this.currentCalculation.attacking_item_id_two = this.attackingItemsV2[1].id;
+      this.currentCalculation.attacking_item_id_three = this.attackingItemsV2[2].id;
+      this.currentCalculation.attacking_item_id_four = this.attackingItemsV2[3].id;
+      this.currentCalculation.attacking_item_id_five = this.attackingItemsV2[4].id;
+      this.currentCalculation.attacking_item_id_six = this.attackingItemsV2[5].id;
+
+      this.currentCalculation.defending_item_id_one = this.defendingItemsV2[0].id;
+      this.currentCalculation.defending_item_id_two = this.defendingItemsV2[1].id;
+      this.currentCalculation.defending_item_id_three = this.defendingItemsV2[2].id;
+      this.currentCalculation.defending_item_id_four = this.defendingItemsV2[3].id;
+      this.currentCalculation.defending_item_id_five = this.defendingItemsV2[4].id;
+      this.currentCalculation.defending_item_id_six = this.defendingItemsV2[5].id;
+
       console.log("this is the thing", this.currentCalculation);
-      axios.post("http://localhost:3000/calculations", currentCalculation).then((response) => {
+      axios.post("http://localhost:3000/calculations", this.currentCalculation).then((response) => {
         console.log(response.data);
         this.output = response.data.output;
       });
     },
-    getChampName: function (calc_id) {
-      let championId = this.champions.findIndex(function (champ) {
-        return champ.id == calc_id;
-      });
-      let championName = this.champions[championId].name;
-      return championName;
-    },
-    getAbilityName: function (calc_id) {
-      let abilityId = this.abilities.findIndex(function (champ) {
-        return champ.id == calc_id;
-      });
-      let abilityName = this.abilities[abilityId].name;
-      return abilityName;
-    },
-    // this will get called when an attacking champion is selected
+    // this will get called when an attacking champion is selected eventually
     getAbilities(champ_id) {
       this.abilities = this.champions;
       console.log(champ_id);
