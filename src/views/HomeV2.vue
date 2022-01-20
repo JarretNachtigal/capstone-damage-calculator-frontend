@@ -1,9 +1,10 @@
 <template>
   <div class="home">
     <body>
-      <h1>{{ message }}</h1>
-      <!-- <p>{{ champions }}</p> -->
-      <!-- <h1>{{ abilities }}</h1> -->
+      <h1>{{ title }}</h1>
+      <p>{{ champions }}</p>
+      <p>{{ abilities }}</p>
+      <p>{{ items }}</p>
       <!-- champions dropdown-->
       <div>
         <form>
@@ -12,13 +13,13 @@
             <!-- datalist for champions -->
             <datalist id="champions">
               <option v-for="champ in champions" :key="champ.id">
-                {{ getChampName(champ.id) }}
+                {{ champ.name }}
               </option>
             </datalist>
             <!-- datalist for abilities -->
             <datalist id="abilities">
               <option v-for="ability in abilities" :key="ability.id">
-                {{ getAbilityName(ability.id) }}
+                {{ ability.name }}
               </option>
             </datalist>
             <!-- datalist for champion levels -->
@@ -216,10 +217,12 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "New Calculation",
+      title: "New Calculation",
+      // these hold the data from the backend, not the user selected champions and abilities
       champions: [],
       abilities: [],
       items: [],
+      // this is the object that will be sent to the backend to do the calculation
       currentCalculation: {
         champion_id_one: null,
         champion_id_two: null,
@@ -242,6 +245,33 @@ export default {
         defending_item_id_five: null,
         defending_item_id_six: null,
       },
+      // new
+      // first champion is attacking, second is defending
+      championsV2: [
+        { name: null, id: null },
+        { name: null, id: null },
+      ],
+      // abilities array, will hold abilities of current selected attacking champion
+      abilitiesV2: [],
+      // attacking items array, holds up to six selected items
+      attackingItemsV2: [
+        { name: null, id: null },
+        { name: null, id: null },
+        { name: null, id: null },
+        { name: null, id: null },
+        { name: null, id: null },
+        { name: null, id: null },
+      ],
+      // defending items array
+      defendingItemsV2: [
+        { name: null, id: null },
+        { name: null, id: null },
+        { name: null, id: null },
+        { name: null, id: null },
+        { name: null, id: null },
+        { name: null, id: null },
+      ],
+      // old
       championOneName: "",
       championTwoName: "",
       abilityName: "",
@@ -262,16 +292,19 @@ export default {
   },
   created: function () {
     axios.get("http://localhost:3000/champions").then((response) => {
-      this.champions = response.data;
-      console.log(this.champions);
+      response.data.map((champion) => {
+        this.champions.push({ name: champion.name, id: champion.id });
+      });
     });
     axios.get("http://localhost:3000/abilities").then((response) => {
-      this.abilities = response.data;
-      console.log(this.abilities);
+      response.data.map((ability) => {
+        this.abilities.push({ name: ability.name, id: ability.id });
+      });
     });
     axios.get("http://localhost:3000/items").then((response) => {
-      this.items = response.data;
-      console.log(this.items);
+      response.data.map((item) => {
+        this.items.push({ name: item.name, id: item.id });
+      });
     });
   },
   methods: {
@@ -286,6 +319,7 @@ export default {
       currentCalculation.champion_id_two = this.champions.find((champ) => champ.name === championTwoName).id;
       // get ability id's from ability names
       currentCalculation.ability_id = this.abilities.find((ability) => ability.name === abilityName).id;
+      // replace these ifs with maps through V2 arrays !!!!!!!!!!!!!!!!!!!!!!!
       if (this.attackingItemOne != "") {
         currentCalculation.attacking_item_id_one = this.items.find((item) => item.name === this.attackingItemOne).id;
       }

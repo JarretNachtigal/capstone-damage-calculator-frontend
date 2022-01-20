@@ -12,6 +12,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link to" href="/">Home</a></li>
+          <li><a class="nav-link to" href="/HomeV2">HomeV2</a></li>
           <li><a class="nav-link to" href="/history">History</a></li>
           <li><a class="nav-link to" href="/about">About</a></li>
         </ul>
