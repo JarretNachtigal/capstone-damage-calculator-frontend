@@ -287,6 +287,7 @@ export default {
     });
   },
   methods: {
+    // these are broken
     setItemIds() {
       console.log("inside setItemIds");
       this.attackingItemsV2.map((item) => (item.id = this.items.find((i) => (item.name = i.name).id)));

@@ -277,10 +277,6 @@ export default {
   methods: {
     // fields of currentCalculation need to be translated from newThing to id first
     createCalculation(currentCalculation, championOneName, championTwoName, abilityName) {
-      // reset defendingChampionCurrentHp if it is empty
-      if (this.defending_champion_current_hp === "") {
-        this.defending_champion_current_hp = null;
-      }
       // get champion id's from champion names
       currentCalculation.champion_id_one = this.champions.find((champ) => champ.name === championOneName).id;
       currentCalculation.champion_id_two = this.champions.find((champ) => champ.name === championTwoName).id;
