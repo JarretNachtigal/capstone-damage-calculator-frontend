@@ -287,32 +287,27 @@ export default {
     });
   },
   methods: {
-    // FINISH THESE ----A-A--A-A-A--A-A--A--A-A-A-A---A-A-A-A-A-A-A-A-A-A-A-AAA-A-A-A-A
     setItemIds() {
       console.log("inside setItemIds");
-      this.attackingItemsV2.map((item) => (item.id = this.items.find((i) => (item.name = i.name))));
-      this.defendingItemsV2.map((item) => (item.id = this.items.find((i) => (item.name = i.name))));
+      this.attackingItemsV2.map((item) => (item.id = this.items.find((i) => (item.name = i.name).id)));
+      this.defendingItemsV2.map((item) => (item.id = this.items.find((i) => (item.name = i.name).id)));
     },
     setChampionIds() {
       console.log("inside setChampionIds");
-      this.attackingItemsV2.map((item) => (item.id = this.items.find((i) => (item.name = i.name))));
-      this.defendingItemsV2.map((item) => (item.id = this.items.find((i) => (item.name = i.name))));
+      this.championsV2[0].id = this.champions.find((champ) => champ.name === this.championsV2[0].name).id;
+      this.championsV2[1].id = this.champions.find((champ) => champ.name === this.championsV2[1].name).id;
     },
     setAbilityIds() {
       console.log("inside setAbilityIds");
-      this.attackingItemsV2.map((item) => (item.id = this.items.find((i) => (item.name = i.name))));
-      this.defendingItemsV2.map((item) => (item.id = this.items.find((i) => (item.name = i.name))));
+      this.abilitiesV2.map((ability) => (ability.id = this.abilities.find((a) => (ability.name = a.name).id)));
     },
     // fields of currentCalculation need to be translated from newThing to id first
     createCalculation() {
+      this.currentCalculation.output = null;
       // set ids from names
       this.setChampionIds();
       this.setAbilityIds();
       this.setItemIds();
-      // reset defendingChampionCurrentHp if it is empty
-      if (this.defending_champion_current_hp === "") {
-        this.defending_champion_current_hp = null;
-      }
       // get champion id's from champion names
       this.currentCalculation.champion_id_one = this.champions.find(
         (champ) => champ.name === this.championsV2[0].name
@@ -325,7 +320,6 @@ export default {
         (ability) => ability.name === this.abilitiesV2[0].name
       ).id;
 
-      console.log("right before item ids");
       //items array into currentCalculation object
       this.currentCalculation.attacking_item_id_one = this.attackingItemsV2[0].id;
       this.currentCalculation.attacking_item_id_two = this.attackingItemsV2[1].id;
